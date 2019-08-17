@@ -3,8 +3,10 @@ import 'package:webfeed/domain/media/media.dart';
 import 'package:webfeed/domain/rss_category.dart';
 import 'package:webfeed/domain/rss_content.dart';
 import 'package:webfeed/domain/rss_enclosure.dart';
+import 'package:webfeed/domain/rss_meta.dart';
 import 'package:webfeed/domain/rss_source.dart';
 import 'package:webfeed/util/helpers.dart';
+import 'package:webfeed/webfeed.dart';
 import 'package:xml/xml.dart';
 
 class RssItem {
@@ -22,6 +24,7 @@ class RssItem {
   final Media media;
   final RssEnclosure enclosure;
   final DublinCore dc;
+  final RssMeta meta;
 
   RssItem({
     this.title,
@@ -37,6 +40,7 @@ class RssItem {
     this.media,
     this.enclosure,
     this.dc,
+    this.meta,
   });
 
   factory RssItem.parse(XmlElement element) {
@@ -56,6 +60,7 @@ class RssItem {
       media: Media.parse(element),
       enclosure: RssEnclosure.parse(findElementOrNull(element, "enclosure")),
       dc: DublinCore.parse(element),
+      meta: RssMeta.parse(findElementOrNull(element, "ozb:meta")),
     );
   }
 }

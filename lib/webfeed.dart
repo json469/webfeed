@@ -10,4 +10,5 @@ export 'domain/rss_cloud.dart';
 export 'domain/rss_feed.dart';
 export 'domain/rss_image.dart';
 export 'domain/rss_item.dart';
+export 'domain/rss_meta.dart';
 export 'domain/rss_source.dart';
