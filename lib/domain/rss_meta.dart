@@ -4,7 +4,7 @@ class RssMeta {
   final int commentCount;
   final String link;
   final int clickCount;
-  final DateTime expiry;
+  final String expiry;
   final int votesPos;
   final int votesNeg;
   final String url;
@@ -29,7 +29,7 @@ class RssMeta {
       commentCount: int.parse(node.getAttribute("comment-count")),
       link: node.getAttribute("link"),
       clickCount: int.parse(node.getAttribute("click-count")),
-      expiry: DateTime.parse(node.getAttribute("expiry")),
+      expiry: node.getAttribute("expiry"),
       votesPos: int.parse(node.getAttribute("votes-pos")),
       votesNeg: int.parse(node.getAttribute("votes-neg")),
       url: node.getAttribute("url"),
